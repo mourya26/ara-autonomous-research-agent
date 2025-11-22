@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# Env files
+.env
+
+# Local data runs / artifacts
+runs/
+
+# VSCode / IDE
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/
+
+# OS
+.DS_Store
+Thumbs.db
