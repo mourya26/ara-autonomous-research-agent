@@ -18,7 +18,6 @@ if not API_KEY:
 # Configure client
 genai.configure(api_key=API_KEY)
 
-
 def call_llm(prompt: str, max_tokens: int = 1024):
     """
     Call Gemini 2.0 Flash and request JSON-only output.
@@ -44,7 +43,6 @@ def call_llm(prompt: str, max_tokens: int = 1024):
             "raw": None,
             "error": f"LLM ERROR: {e}",
         }
-
 
 def ask_for_pandas_code(question: str, max_tokens: int = 256) -> str:
     """
