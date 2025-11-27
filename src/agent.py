@@ -4,16 +4,11 @@ import os
 import sys
 import json
 from datetime import datetime
-
 import pandas as pd
-
 from llm_wrapper import call_llm
-from eda import quick_eda  # assumes eda.py exists with quick_eda(df) -> (eda_text, eda_summary)
+from eda import quick_eda  
 
-
-# ----------------------------
 # Robust JSON helper
-# ----------------------------
 def safe_parse_json(text):
     """
     Try to parse JSON from model output.
@@ -31,13 +26,11 @@ def safe_parse_json(text):
     # Remove possible ```json fences
     text = text.replace("```json", "").replace("```", "").strip()
 
-    # 1) Direct attempt
     try:
         return json.loads(text)
     except Exception:
         pass
 
-    # 2) Find first balanced {...}
     start = text.find("{")
     if start == -1:
         return None
@@ -76,10 +69,7 @@ def safe_parse_json(text):
     except Exception:
         return None
 
-
-# ----------------------------
 # Agent loop (Mode 2: diagnostics but no execution)
-# ----------------------------
 def run_agent_loop(df, max_iters=3):
     """
     Simple agent loop:
@@ -185,24 +175,17 @@ Now respond with ONE JSON object only.
     final_path = os.path.join(run_folder, "final_report.json")
     with open(final_path, "w", encoding="utf-8") as f:
         json.dump(final_report, f, indent=2)
-
     print("[agent] Completed. Final report saved at:", final_path)
     return final_report
 
-
-# ----------------------------
 # CLI entrypoint
-# ----------------------------
 if __name__ == "__main__":
     print("MAIN BLOCK IS RUNNING!")
-
     csv_path = os.path.join(os.path.dirname(__file__), "..", "data", "sample.csv")
     print("Looking for:", csv_path)
-
     if not os.path.exists(csv_path):
         print("[ERROR] sample.csv not found at", csv_path)
         sys.exit(1)
-
     df = pd.read_csv(csv_path)
     print("Loaded CSV with shape:", df.shape)
 
