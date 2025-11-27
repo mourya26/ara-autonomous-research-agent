@@ -14,14 +14,12 @@ FORBIDDEN_SUBSTRINGS = [
     "subprocess", "eval(", "exec(", "__"
 ]
 
-
 def is_safe(code: str):
     c = code.lower()
     for bad in FORBIDDEN_SUBSTRINGS:
         if bad in c:
             return False, f"Blocked dangerous code: {bad}"
     return True, ""
-
 
 def run_pandas_code(df: pd.DataFrame, code: str):
     """
