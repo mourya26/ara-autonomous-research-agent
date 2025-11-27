@@ -4,7 +4,6 @@ from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
 import os
 
-
 def generate_pdf(report_data, plots, output_path):
     print("📄 generate_pdf STARTED")
     print("Saving to:", output_path)
