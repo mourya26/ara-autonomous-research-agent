@@ -157,9 +157,6 @@ cd ara-autonomous-research-agent
 2. Create virtual environment
 ```
 python -m venv .venv
-
-Windows:
-
 .venv\Scripts\activate
 ```
 3. Install dependencies
@@ -254,3 +251,4 @@ SQL mode (for database datasets)
 Model selection (Flash / Pro / Flash Thinking)
 
 Cloud deployment (GCP / AWS / Azure)
+
