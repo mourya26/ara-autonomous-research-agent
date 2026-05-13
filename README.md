@@ -150,7 +150,7 @@ Visuals
 
 1. Clone the repo
 ```
-git clone https://github.com/<your-username>/ara-autonomous-research-agent.git
+git clone https://github.com/mourya26/ara-autonomous-research-agent.git
 cd ara-autonomous-research-agent
 ```
 
